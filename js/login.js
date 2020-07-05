@@ -5,10 +5,11 @@ const login = () => {
     const url = 'http://127.0.0.1:8080';
     xhr.open('POST', url + '/api/login', true);
     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.withCredentials = true;
     xhr.send('user=' + username + '&pass=' + password);
-    console.log('user=' + username + '&pass=' + password);
     xhr.onreadystatechange = () => {
         const json = xhr.responseText;
         console.log(json);
     }
 }
+
